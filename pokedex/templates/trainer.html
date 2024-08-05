@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Trainers{% endblock title %}
+
+{% block content %}
+
+<a href="{% url "pokedex:add_trainer" %}" class="btn btn-primary mb-4">Agregar Trainer</a>
+
+<div class="container">
+    <div class="row">
+        {% for trainer in trainers %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="row no-gutters">
+                        <div class="col-md-5">
+                            <img src="{{ trainer.picture.url }}" class="card-img" alt="" height="300px">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title font-weight-bold mb-4">{{ trainer }}</h5>
+                                <p class="card-text">Edad: {{ trainer.age }}</p>
+                                <p class="card-text mb-5">Nivel: {{ trainer.level }}</p>
+                                <div class="mt-auto">
+                                    <a href="{{ trainer.id }}" class="btn btn-primary">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                    <a href="edit_trainer/{{ trainer.id }}" class="btn btn-primary">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                    {% if user.is_authenticated %}
+                                    <a href="delete_trainer/{{ trainer.id }}" class="btn btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
