@@ -2,7 +2,7 @@
 
 {% block title %}Mi Pokedex{% endblock title %}
 {% block content %}
-    <p class="p-2">Hola, este es mi primer sitio en Django</p>   
+    <p class="p-2">Hola, este es mi primera pagina web</p>   
     <a href="{% url "pokedex:add_pokemon" %}" class="btn btn-primary">Crear pokemon</a>
     <div class="card-group">
         {%for pokemon in pokemons%}

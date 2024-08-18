@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date
-from .models import Trainer
+
 
 # Create your models here.
 

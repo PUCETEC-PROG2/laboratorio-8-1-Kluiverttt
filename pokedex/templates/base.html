@@ -10,12 +10,12 @@
 <body>
   <div class="container" href="{% static "bootstrap.min.css" %}">
       <div class="bg-primary text-white p-4 text-center">
-          <img src="{% static "logo.png" %}" >
+          <img src="{% static "pokedex2.jpeg" %}" >
           
-          <p>INICIO BARRA DE NAVEGACION</p>
+          
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Barra de navegacion Pokemon</a>
+                  <a class="navbar-brand" href="#">Barra de navegacion</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                   </button>
@@ -30,9 +30,12 @@
                               <a class="nav-link" href="{% url "pokedex:add_pokemon" %}"><b>Añadir Pokemon</b></a>
                           </li>
                           <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url "pokedex:trainer" %}">Trainers</a>
+                          </li>
+                          <li class="nav-item">
                               <a class="nav-link" href="{% url 'logout' %}">logout</a>
                           </li>
-      
+                          
                       {% else %}
                           <li class="nav-item">
                               <a class="nav-link" href="{% url "pokedex:login" %}"><b>Login</b></a>
